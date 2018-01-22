@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+#main-area {
+  border-right: solid 1px #D8CDAE;
+  margin: 0 auto;
+  padding: 0px;
+  width: 1200px;
+}
+
+/* タイトル */
+#main-box h3 {
+  font-size: 1.6rem;
+  font-weight: normal;
+  text-align: center;
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+/* テーブル */
+#main-box table {
+  margin: 0 auto;
+}
+#main-box table th, #main-box table td {
+  border: solid 1px #95989A;
+}
+#main-box table th {
+  background-color: #B9B9B9;
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 50px;
+  width: 200px;
+  height: 50px;
+}
+#main-box table td {
+  font-size: 1.2rem;
+  padding-left: 20px;
+  width: 400px;
+}
+#main-box table td span {
+  font-size: 1.2rem;
+  padding-left: 5px;
+}
+
+/* 説明文 */
+#main-description {
+  font-size: 1.2rem;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  width: 680px;
+}
+.property-box > p {
+  font-size: 1.4rem;
+  line-height: 30px;
+}
+#btn-edit {
+  color: cornflowerblue;
+  font-size: 1.2rem;
+}

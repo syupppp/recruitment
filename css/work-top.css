@@ -1,0 +1,314 @@
+@charset "utf-8"
+
+	html{
+		font-size: calc(112.5% + 0.25vw);
+		color: #333;
+	}
+	body {
+		width: 100vw;
+		overflow: hidden;
+	}
+	.clearfix:after {
+	    content:" ";
+	    display:block;
+	    clear:both;
+	}
+	*, *:before, *:after {		/* border, paddingを幅に含める */
+	    -webkit-box-sizing: border-box;
+	       -moz-box-sizing: border-box;
+	         -o-box-sizing: border-box;
+	        -ms-box-sizing: border-box;
+	            box-sizing: border-box;
+	            -webkit-font-smoothing: antialiased;
+	}
+	li {
+		list-style: none;
+	}
+	a {
+		text-decoration: none;
+	}
+
+/*
+ * +++++++++++++
+ * header
+ * +++++++++++++
+ */
+	header {
+		background-color: #187FC4;
+		height: 80px;
+		padding: 13px 0;
+	}
+	#header-wrapper {
+		width: 1100px;
+		margin: 0 auto;
+	}
+	#logo {
+		width: 95px;
+		height: 55px;
+		float: left;
+	}
+	#logo a {
+		width: 100%;
+		height: 100%;
+		display: block;
+		background-image: url(../image/logo.png);
+		background-size: 95px 55px;
+		background-repeat: no-repeat;
+	}
+	#logo span {
+		display: none;
+	}
+	/* nav */
+	#nav {
+		overflow: hidden;
+		float: right;
+	}
+	#nav li {
+		float: left;
+	}
+	#nav li a {
+		color: #fff;
+		font-size: 1.0rem;
+		padding: 0 35px;
+		line-height: 54px;
+	
+		border-right: solid 1px #fff;
+	}
+	#mypage {
+		padding: 0 35px;
+	}
+	#mypage a{
+		width: 50px;
+		height: 50px;
+		padding: 0px;
+		display: block;
+		border-right: none;
+		background-color: #fff;
+	
+	}
+
+/*
+ * +++++++++++++
+ * wrapper
+ * +++++++++++++
+ */
+	#wrapper {
+		width: 1100px;
+		margin: 0 auto;
+	}
+
+/*
+ * +++++++++++++
+ * work-folder
+ * +++++++++++++
+ */
+ #work-folder {
+	position: relative;
+ }
+
+
+/*
+ * +++++++++++++
+ * circles
+ * +++++++++++++
+ */
+	#circles {
+		padding-top: 50px;
+		margin-bottom: 85px;
+	}
+	#circles h2 {
+		font-weight: normal;
+		font-size: 1.2rem;
+		padding-bottom: 20px;
+	}
+	#circles-list {
+		background-color: #D3DEF1;
+		border-radius: 20px;
+		padding: 15px 60px;
+		overflow: hidden;
+	}
+	#circles-list li{
+		float: left;
+		padding-right: 30px;
+	}
+	#circles-list li a {
+		display: block;
+		font-size: 0.8rem;
+		color: #333;
+		width: 130px;
+		background-repeat: no-repeat;
+		padding-top: 143px;
+		text-align: center;
+	}
+	#circles-list li:nth-child(1) a {
+		background-image: url(../image/circle001.png);
+	}
+	#circles-list li:nth-child(2) a {
+		background-image: url(../image/circle002.png);
+	}
+	#circles-list li:nth-child(3) a {
+		background-image: url(../image/circle003.png);
+	}
+
+/*
+ * +++++++++++++
+ * items
+ * +++++++++++++
+ */
+	#items {
+		position: relative;
+		background-color: #EEEEEE;
+		padding: 50px 50px;
+	}
+	#items h2 span{
+		display: none;
+	}
+	/* foldername */
+ 	#nowfoldername {
+		content: '';
+		z-index: 1;
+ 		width: 200px;
+		position: absolute;
+		top: -35px;
+		left: 0px;
+		border-bottom: 35px solid #EEEEEE;
+		border-left: 20px solid transparent;
+		border-right: 20px solid transparent;
+		height: 0;
+ 	}
+	#nowfoldername p{
+		line-height: 35px;
+		font-size: 0.8rem;
+		position: absolute;
+		left: 15px;
+	}
+	/* icons-item */
+	#icons-item {
+		padding-top: 50px;
+		overflow: hidden;
+	}
+	#icons-item dl{
+		height: 150px;
+		width: 150px;
+		float: left;
+		cursor: move;
+		padding-right: 50px;
+		position: relative;
+	}
+	#icons-item dl dt {
+		font-size: 0.8rem;
+		position: absolute;
+		width: 100px;
+		text-align: center;
+		top: 112px;
+	}
+	#icons-item dl dd {
+		background-color: #bbb;		
+		border-radius: 10px;
+		width: 100px;
+		height: 100px;
+	}
+	#icons-item dl dd span {
+		display: none;
+	}
+	/* パンくずリスト */
+	.pankuzulist {
+		overflow: hidden;
+	}
+	.pankuzulist li{
+		float: left;
+	}
+	.pankuzulist li a {
+		color: #333;
+	}
+	.pankuzulist li:before{
+		content: '>';
+		padding: 0 10px;
+	}
+	.pankuzulist li:nth-child(1):before{
+		content: '';
+		padding: 0;
+	}
+
+/*
+ * +++++++++++++
+ * edits
+ * +++++++++++++
+ */
+ 	#edits {
+ 		transition: .5s;
+		position: absolute;
+		top: 150px;
+		right: -150px;
+ 	}
+
+ 	#edits.active{
+ 		transform: translateX(-180px);
+ 		transition: .5s;
+ 	}
+ 	#edits ul li {
+ 		width: 150px;
+ 		height: 150px;
+ 		border-radius: 75px;
+ 		line-height: 150px;
+ 		text-align: center;
+ 		color: #fff;
+ 		margin-bottom: 50px;
+ 	}
+ 	#edits ul #edits-sum {
+ 		background-color: #EF845C;
+ 	}
+	#edits ul #edits-download {
+		background-color: #6C9BD2;
+	}
+ 	#edits ul #edits-delete {
+ 		background-color: #999999;
+ 	}
+
+/*
+ * +++++++++++++
+ * companies
+ * +++++++++++++
+ */
+
+	#companies-active {
+		position: absolute;
+		bottom: 35px;
+		display: none;
+	}
+	#companies-active ul {
+		overflow: hidden;
+	}
+	#companies-active ul li {
+		width: 180px;
+		height: 180px;
+		border-radius: 90px;
+		float: left;
+		margin-right: 55px;
+		line-height: 180px;
+		text-align: center;
+		color: #fff;
+	}
+	#companies-active ul #companies-book {
+		background-color: #EF858C;
+	}
+	#companies-active ul #companies-goods {
+		background-color: #61C1BE;
+	}
+	#companies-active ul #companies-cd {
+		background-color: #C1DB81;
+	}
+	#companies-active ul li:last-child {
+		margin-right: 0px;
+	}
+
+	.hidden{
+		display: none;
+	}
+
+
+
+
+.over {
+  border: 2px dashed #000;
+}

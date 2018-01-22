@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+/*
+ **********************
+ * メインエリア
+ */
+
+#main-area {
+  border-right: solid 1px #D8CDAE;
+  margin: 0 auto;
+  padding: 0px;
+  padding-bottom: 100px;
+  width: 1200px;
+}
+/* タイトル */
+#main-box h3 {
+  font-size: 1.6rem;
+  text-align: center;
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+/* 注文状況URL */
+#order-url {
+  text-align: center;
+}
+#order-url a {
+  font-size: 1.2rem;
+}

@@ -1,0 +1,96 @@
+@charset "utf-8";
+
+/*
+ **********************
+ * Wrapper
+ */
+#wrapper {
+  padding-bottom: 50px;
+}
+/*
+ **********************
+ * メインエリア
+ */
+
+#main-area {
+  border-right: solid 1px #D8CDAE;
+  margin: 0 auto;
+  padding: 0px;
+  padding-bottom: 100px;
+  width: 1200px;
+  height: auto;
+}
+/* タイトル */
+#main-box h3 {
+  color: #DE6641;
+  font-size: 1.6rem;
+  text-align: center;
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+/* テーブル */
+#main-box table {
+  margin: 0 auto 50px;
+}
+#main-box table caption {
+  font-size: 1.4rem;
+  padding-left: 15px;
+  padding-bottom: 8px;
+  position: relative;
+  text-align: left;
+}
+#main-box table caption:before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 0px;
+  width: 4px;
+  height: 16px;
+  background-color: #4898F5;
+}
+/* 説明文 */
+#main-description {
+  font-size: 1.2rem;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  width: 680px;
+}
+.property-box > p {
+  font-size: 1.4rem;
+  line-height: 30px;
+}
+
+/* テーブル */
+#main-box table th, #main-box table td {
+  border: solid 1px #95989A;
+}
+#main-box table th {
+  background-color: #B9B9B9;
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 50px;
+  width: 200px;
+  height: 50px;
+}
+#main-box table td {
+  font-size: 1.2rem;
+  padding-left: 20px;
+  width: 400px;
+}
+#main-box table td span {
+  font-size: 1.2rem;
+  padding-left: 5px;
+}
+
+/* 注文ボタン */
+#btn-order {
+  background-color: #DD6673;
+  box-shadow: 0px 3px 0px 0px #A7374A;
+  line-height: 40px;
+  margin: 50px auto 0;
+  width: 150px;
+  height: 40px;  
+}
+#btn-order {
+  font-size: 1.2rem;
+}

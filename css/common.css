@@ -1,0 +1,226 @@
+@charset "utf-8";
+
+html {
+  font-size: 62.5%;
+}
+ul {
+  list-style: none;
+}
+body {
+  background-color: #F5F3EA;
+  color: #666;
+}
+*, *:before, *:after{
+  box-sizing: border-box;
+  -ms-user-select: auto;
+  -moz-user-select: auto;
+  -khtml-user-select: auto;
+  -webkit-user-select: auto;
+  user-select: none;
+}
+a {
+  text-decoration: none;
+}
+/* clear-fix */
+.clear-fix:after {
+    clear:both;
+    content:"";
+    display:block;
+}
+.btn {
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.0rem;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+ol {
+  list-style: none;
+}
+
+
+/*
+ **********************
+ * ヘッダー
+ */
+header {
+  width: 100%;
+}
+/* 上部分 */
+#top-box {
+  background-color: #4898F5;
+  box-shadow:0px 2px 0px 0px #2C7EDD;
+  height: 60px;
+  position: relative;
+}
+#head-wrapper-top {
+  margin: 0 auto;
+  position: relative;
+  width: 1100px;
+  height: 100%;
+}
+  /* ロゴ */
+  #logo {
+    position: absolute;
+    top: 50%;
+    left: 70px;
+    transform: translateY(-50%);
+  }
+  #logo a {
+    color: #fff;
+    display: block;
+    font-size: 1.6rem;
+  }
+  /* プロフィール */
+  #profile-box {
+    height: 40px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+  }
+  #profile-name {
+    color: #fff;
+    float: left;
+    font-size: 1.4rem;
+    line-height: 40px;
+    padding-left: 20px;
+  }
+  #profile-img {
+    border-radius: 20px;
+    border-bottom: solid 1px #9BC6F7;
+    float: left;
+    height: 40px;
+    width: 40px;
+  }
+  #profile-img img {
+    border-radius: 20px;
+    border-top: solid 1px #2C7EDD;
+    height: 40px;
+    width: 40px;
+  }
+
+/* 下部分 */
+#head-wrapper-buttom {
+  margin: 0 auto;
+  width: 1100px;
+}
+#buttom-box {
+  background-color: #E5E9ED;
+  box-shadow:0px 2px 0px 0px #CFD0D1;
+  height: 50px;
+  padding: 10px 0;
+}
+
+  /* ヘッダー左側(タイトル&戻るボタン) */
+  #header-left-box {
+    overflow: hidden;
+    position: absolute;
+    left: 120px;
+  }
+  #file-title {
+    font-size: 1.4rem;
+    font-weight: normal;
+    float: left;
+    line-height: 33px;
+    margin-left: 50px;
+  }
+  #btn-back {
+    background-color: #EFF0F4;
+    border: solid 0.5px #989C9F;
+    box-shadow:0px 3px 0px 0px #989C9F;
+    float: left;
+    width: 60px;
+  }
+  #btn-back p{
+    color: #666;
+  }
+
+
+/*
+ **********************
+ * Wrapper
+ */
+#wrapper {
+  padding: 75px 0 0;
+  position: relative;
+}
+
+/*
+ **********************
+ * メインエリア
+ */
+/* 背景 */
+#main-area {
+  background-color: #FBFAF5;
+  box-shadow:0px 4px 0px 0px #F2EAD3;
+  height: 550px;
+  margin-left: 120px;
+  padding: 40px 50px 0;
+  position: relative;
+  width: 1000px;
+}
+
+
+/*
+ **********************
+ * 注文フォームにて
+ */
+
+/* 白背景 */
+.property-box {
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 60px 50px;
+  width: 680px;
+}
+/* 次へボタン */
+#btn-submit input[type="submit"] {
+  border-style: none;
+  background-color: #27ACA9;
+  box-shadow: 0 3px 0 0 #007D7A;
+  padding: 0;
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  width: 90px;
+}
+/* 説明文 */
+#main-description {
+  font-size: 1.2rem;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  width: 680px;
+}
+/* ステップバー */
+#step-bar {
+  border-radius: 10px 10px 0 0;
+  position: absolute;
+  top: -50px;
+  left: 20px;
+}
+#step-bar li {
+  background-color: #B9B9B9;
+  border-radius: 10px 10px 0 0; 
+  border-right: solid 1px #F5F3EA;
+  color: #fff;
+  float: left;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  line-height: 50px;
+  text-align: center;
+  width: 100px;
+  height: 50px;
+}
+#step-bar .step-active {
+  background-color: #6C9BD2;
+  font-weight: bold;
+  width: 150px;
+  height: 55px;
+}
+#step-bar .step-selectable {
+  background-color: #A3BCE2;
+}
