@@ -1,6 +1,6 @@
 <?php
 /**
- *	WP32 PHP課題No.11 作業報告書管理アプリ Src01/
+ *	就職作品 コミックマーケット支援サービス コミまる
  *	定数記述ファイル
  *
  *	@author Miruri Higashimura <easternvillage.cocoa@gmail.com>

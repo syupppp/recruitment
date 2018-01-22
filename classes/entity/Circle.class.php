@@ -6,38 +6,42 @@
  *	@version 1.0
  *	@copyright Sarva
  *
- *	ファイル名=Object.class.php
+ *	ファイル名=Circle.class.php
  *	ディレクトリ=/syupure/classes/entity/
  */
 
 /**
- *	オブジェクトエンティティクラス。
+ *	サークルエンティティクラス。
  */
-class Obj {
+class Circle {
 	/**
 	 *	主キーのid。
 	 */
 	private $id;
 	/**
-	 *	オブジェクト名。
+	 *	サークル名。
 	 */
 	private $name;
 	/**
-	 *	オブジェクトタイプ。
+	 *	都道府県ID。
 	 */
-	private $type;
+	private $prefId;
 	/**
-	 *	ユーザID。
+	 *	郵便番号。
 	 */
-	private $userId;
+	private $postalCode;
 	/**
-	 *	サークルID。
+	 *	住所1。
 	 */
-	private $circleId;
+	private $addressPrefectures;
 	/**
-	 *	親階層ID。
+	 *	住所2。
 	 */
-	private $parentId;
+	private $addressMunicipality;
+	/**
+	 *	住所3。
+	 */
+	private $addressOther;
 
 
 	//以下アクセサメソッド。

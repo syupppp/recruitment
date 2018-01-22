@@ -65,6 +65,7 @@ class UserDAO {
 			$user->setAddressPrefectures($addressPrefectures);
 			$user->setAddressMunicipality($addressMunicipality);
 			$user->setAddressOther($addressOther);
+			$user->setPhoneNumber($phoneNumber);
 			$user->setMail($mail);
 			$user->setPassword($password);
 		}

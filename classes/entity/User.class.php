@@ -47,6 +47,10 @@ class User {
 	 */
 	private $addressOther;
 	/**
+	 *	電話番号。
+	 */
+	private $phoneNumber;
+	/**
 	 *	メールアドレス。
 	 */
 	private $mail;
@@ -105,6 +109,12 @@ class User {
 	}
 	public function getAddressOther() {
 		return $this->addressOther;
+	}
+	public function setPhoneNumber($phoneNumber) {
+		$this->phoneNumber = $phoneNumber;
+	}
+	public function getPhoneNumber() {
+		return $this->phoneNumber;
 	}
 	public function setAddressOther($addressOther) {
 		$this->addressOther = $addressOther;

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-01-22 18:52:29
+/* Smarty version 3.1.30, created on 2018-01-22 20:03:07
   from "/Applications/MAMP/htdocs/syupure/templates/top.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5a65b45d1c7439_77633007',
+  'unifunc' => 'content_5a65c4ebe3f666_51542599',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c446697cb82db062cf7c339dadfabbde80c65c34' => 
     array (
       0 => '/Applications/MAMP/htdocs/syupure/templates/top.tpl',
-      1 => 1516614748,
+      1 => 1516618986,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a65b45d1c7439_77633007 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a65c4ebe3f666_51542599 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -77,16 +77,38 @@ function content_5a65b45d1c7439_77633007 (Smarty_Internal_Template $_smarty_tpl)
       <form action="#" method="post">
         <div id="main-wrapper">
           <ol id="pankuzu-list" class="clear-fix">
-            <li><a href="#">まるさんのフォルダー</a></li>
-            <li><a href="#">夏コミ18</a></li>
+            <li><a href="#"><?php echo $_smarty_tpl->tpl_vars['obj']->value->getName();?>
+</a></li>
           </ol>
           <ul class="obj-box">
+<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['objList']->value, 'obj', false, NULL, 'objListLoop', array (
+));
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['obj']->value) {
+?>
             <li>
               <div class="main-obj-icon">
                 <label><input class="obj-checkbox-input" type="checkbox" name="" value="1"><span class="obj-checkbox-part"></span></label>
                 <div class="book">book-icon</div>
               </div>
-              <p class="main-obj-name">アイウエオまるまる.book</p>
+              <p class="main-obj-name"><?php echo $_smarty_tpl->tpl_vars['obj']->value->getName();?>
+</p>
+            </li>
+<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
+<!--
+            <li>
+              <div class="main-obj-icon">
+                <label><input class="obj-checkbox-input" type="checkbox" name="" value="1"><span class="obj-checkbox-part"></span></label>
+                <div class="book">book-icon</div>
+              </div>
+              <p class="main-obj-name"><?php echo $_smarty_tpl->tpl_vars['objList']->value[0]->getName();?>
+</p>
             </li>
             <li>
               <div class="main-obj-icon">
@@ -100,6 +122,7 @@ function content_5a65b45d1c7439_77633007 (Smarty_Internal_Template $_smarty_tpl)
               </div>
               <p class="main-obj-name">アイウエオまるまる.book</p>
             </li>
+ -->
           </ul>
         </div>
       </form>

@@ -11,9 +11,9 @@
  */
 
 /**
- *	Userテーブルへのデータ操作クラス。
+ *	Objectテーブルへのデータ操作クラス。
  */
-class UserDAO {
+class ObjDAO {
 	/**
 	 *	@var PDO DB接続オブジェクト
 	 */
@@ -31,44 +31,68 @@ class UserDAO {
 	}
 
 	/**
-	 *	ログインメールによる検索。
+	 *	ユーザーディレクトリ取得。
 	 *
-	 *	@param string $usMail ログインメールアドレス。
-	 *	@return User 該当するUserオブジェクト。ただし、該当データがない場合はnull。
+	 *	@param integer $userId ユーザID。
+	 *	@return Obj 該当するObjオブジェクト。ただし、該当データがない場合はnull。
 	 */
-	public function findByLoginMail($mail) {
-		$sql = "SELECT * FROM user WHERE mail = :mail";
+	public function findByUserDir($userId) {
+		$sql = "SELECT * FROM object WHERE user_id = :user_id AND parent_id = 0";
 		$stmt = $this->db->prepare($sql);
-		$stmt->bindValue(":mail", $mail, PDO::PARAM_STR);
+		$stmt->bindValue(":user_id", $userId, PDO::PARAM_INT);
 		$result = $stmt->execute();
-		$user = null;
+		$obj = null;
 		if($result && $row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 			$id = $row["id"];
 			$name = $row["name"];
-			$nameKana = $row["name_kana"];
-			$prefId = $row["pref_id"];
-			$postalCode = $row["postal_code"];
-			$addressPrefectures = $row["address_prefectures"];
-			$addressMunicipality = $row["address_municipality"];
-			$addressOther = $row["address_other"];
-			$phoneNumber = $row["phone_number"];
-			$mail = $row["mail"];
-			$sex = $row["sex"];
-			$password = $row["password"];
+			$type = $row["type"];
+			$userId = $row["user_id"];
+			$circleId = $row["circle_id"];
+			$parentId = $row["parent_id"];
 
-			$user = new User();
-			$user->setId($id);
-			$user->setName($name);
-			$user->setNameKana($nameKana);
-			$user->setPrefId($prefId);
-			$user->setPostalCode($postalCode);
-			$user->setAddressPrefectures($addressPrefectures);
-			$user->setAddressMunicipality($addressMunicipality);
-			$user->setAddressOther($addressOther);
-			$user->setMail($mail);
-			$user->setPassword($password);
+			$obj = new Obj();
+			$obj->setId($id);
+			$obj->setName($name);
+			$obj->setType($type);
+			$obj->setUserId($userId);
+			$obj->setCircleId($circleId);
+			$obj->setParentId($parentId);
 		}
 
-		return $user;
+		return $obj;
 	}
+
+	/**
+	 *	ディレクトリ内の全ファイル取得。
+	 *
+	 *	@param integer $parentId 親ディレクトリID。
+	 *	@return array 該当するObjオブジェクト配列。ただし、該当データがない場合はnull。
+	 */
+	public function findAllOnDir($userId, $parentId) {
+		$sql = "SELECT * FROM object WHERE user_id = :user_id AND parent_id = :parent_id";
+		$stmt = $this->db->prepare($sql);
+		$stmt->bindValue(":user_id", $userId, PDO::PARAM_INT);
+		$stmt->bindValue(":parent_id", $parentId, PDO::PARAM_INT);
+		$result = $stmt->execute();
+		$objList = [];
+		while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			$id = $row["id"];
+			$name = $row["name"];
+			$type = $row["type"];
+			$userId = $row["user_id"];
+			$circleId = $row["circle_id"];
+
+			$obj = new Obj();
+			$obj->setId($id);
+			$obj->setName($name);
+			$obj->setType($type);
+			$obj->setUserId($userId);
+			$obj->setCircleId($circleId);
+			$obj->setParentId($parentId);
+			$objList[] = $obj;
+		}
+		return $objList;
+	}
+
+
 }

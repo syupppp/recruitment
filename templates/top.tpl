@@ -52,16 +52,25 @@
       <form action="#" method="post">
         <div id="main-wrapper">
           <ol id="pankuzu-list" class="clear-fix">
-            <li><a href="#">まるさんのフォルダー</a></li>
-            <li><a href="#">夏コミ18</a></li>
+            <li><a href="#">{$obj->getName()}</a></li>
           </ol>
           <ul class="obj-box">
+{foreach from=$objList item="obj" name="objListLoop"}
             <li>
               <div class="main-obj-icon">
                 <label><input class="obj-checkbox-input" type="checkbox" name="" value="1"><span class="obj-checkbox-part"></span></label>
                 <div class="book">book-icon</div>
               </div>
-              <p class="main-obj-name">アイウエオまるまる.book</p>
+              <p class="main-obj-name">{$obj->getName()}</p>
+            </li>
+{/foreach}
+<!--
+            <li>
+              <div class="main-obj-icon">
+                <label><input class="obj-checkbox-input" type="checkbox" name="" value="1"><span class="obj-checkbox-part"></span></label>
+                <div class="book">book-icon</div>
+              </div>
+              <p class="main-obj-name">{$objList[0]->getName()}</p>
             </li>
             <li>
               <div class="main-obj-icon">
@@ -75,6 +84,7 @@
               </div>
               <p class="main-obj-name">アイウエオまるまる.book</p>
             </li>
+ -->
           </ul>
         </div>
       </form>

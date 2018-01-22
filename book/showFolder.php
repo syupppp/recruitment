@@ -15,18 +15,26 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/syupure/classes/libs/Smarty.class.php')
 require_once($_SERVER['DOCUMENT_ROOT'].'/syupure/classes/Conf.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/syupure/classes/entity/User.class.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/syupure/classes/dao/UserDAO.class.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/syupure/classes/entity/Object.class.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/syupure/classes/dao/ObjectDAO.class.php');
 
 $smarty = new Smarty();
 $smarty->setTemplateDir($_SERVER['DOCUMENT_ROOT']."/syupure/templates/");
 $smarty->setCompileDir($_SERVER['DOCUMENT_ROOT']."/syupure/templates_c/");
 
 /* （仮）トップにてログイン開始 */
+$objList = [];
 try {
 	$db = new PDO(DB_DNS, DB_USERNAME, DB_PASSWORD);
 	$userDAO = new UserDAO($db);
+	$objDAO = new ObjDAO($db);
 	$user = $userDAO->findByLoginMail("Florlight.H@gmail.com");
+	$obj = $objDAO->findByUserDir($user->getId());
+	$objList = $objDAO->findAllOnDir($user->getId(), $obj->getId());
 
 	$smarty->assign("user", $user);
+	$smarty->assign("obj", $obj);
+	$smarty->assign("objList", $objList);
 }
 catch(PDOException $ex) {
 	print_r($ex);
