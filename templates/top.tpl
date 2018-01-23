@@ -105,7 +105,7 @@
         <li>
           <div class="main-obj-icon">
             <fieldset form="form-order">
-              <label><input type="checkbox" class="obj-checkbox-input" name="orderObj" value="1"><span class="obj-checkbox-part"></span></label>
+              <label><input type="checkbox" class="obj-checkbox-input" name="orderObj" value="1" form="form-order"><span class="obj-checkbox-part"></span></label>
             </fieldset>
             <div class="book">book-icon <a href="#"></a></div>
           </div>
