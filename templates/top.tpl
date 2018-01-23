@@ -24,6 +24,11 @@
     </div>
     <div id="buttom-box">
       <div id="head-wrapper-top" class="clear-fix">
+        <form action="/syupure/order/goOrderForm.php" method="post" id="form-order">
+          <div id="btn-order">
+            <input class="btn" type="submit" value="注文">
+          </div>
+        </form>
         <div class="btn" id="btn-delete">
           <p>削除</p>
         </div>
@@ -58,7 +63,6 @@
 {foreach from=$objList item="obj" name="objListLoop"}
             <li>
               <div class="main-obj-icon">
-                <label><input class="obj-checkbox-input" type="checkbox" name="" value="1"><span class="obj-checkbox-part"></span></label>
                 <div class="book">book-icon</div>
               </div>
               <p class="main-obj-name">{$obj->getName()}</p>
@@ -97,24 +101,17 @@
       <li>みんなのサークル</li>
     </ul>
     <ul class="obj-box">
-      <li>
-        <div class="main-obj-icon">
-          <div class="book">book-icon</div>
-        </div>
-        <p class="main-obj-name">アイウエオまるまる.book</p>
-      </li>
-      <li>
-        <div class="main-obj-icon">
-          <div class="book">book-icon</div>
-        </div>
-        <p class="main-obj-name">アイウエオまるまる.book</p>
-      </li>
-      <li>
-        <div class="main-obj-icon">
-          <div class="book">book-icon</div>
-        </div>
-        <p class="main-obj-name">アイウエオまるまる.book</p>
-      </li>
+{foreach from=$circleList item="circle" name="circleListLoop"}
+        <li>
+          <div class="main-obj-icon">
+            <fieldset form="form-order">
+              <label><input type="checkbox" class="obj-checkbox-input" name="orderObj" value="1"><span class="obj-checkbox-part"></span></label>
+            </fieldset>
+            <div class="book">book-icon <a href="#"></a></div>
+          </div>
+          <p class="main-obj-name">{$circle->getName()}</p>
+        </li>
+{/foreach}
     </ul>
   </div>
 </body>

@@ -1,3 +1,4 @@
+
 <?php
 /**
  *	就職作品 コミックマーケット支援サービス コミまる
@@ -7,8 +8,8 @@
  *	@version 1.0
  *	@copyright Sarva
  *
- *	ファイル名=showFolder.php
- *	ディレクトリ=/syupure/book/
+ *	ファイル名=goOrderForm.php
+ *	ディレクトリ=/syupure/order/
  */
 
 require_once($_SERVER['DOCUMENT_ROOT'].'/syupure/classes/libs/Smarty.class.php');
@@ -22,6 +23,8 @@ $smarty = new Smarty();
 $smarty->setTemplateDir($_SERVER['DOCUMENT_ROOT']."/syupure/templates/");
 $smarty->setCompileDir($_SERVER['DOCUMENT_ROOT']."/syupure/templates_c/");
 
+$orderObj = $_POST["orderObj"];
+
 /* （仮）トップにてログイン開始 */
 $objList = [];
 try {
@@ -33,10 +36,7 @@ try {
 	$objList = $objDAO->findAllOnDir($user->getId(), $obj->getId());
 	$circleList = $objDAO->findAllOnCircle(1, 0);
 
-	$smarty->assign("user", $user);
-	$smarty->assign("obj", $obj);
-	$smarty->assign("objList", $objList);
-	$smarty->assign("circleList", $circleList);
+	$smarty->assign("order", $order);
 }
 catch(PDOException $ex) {
 	print_r($ex);
@@ -48,6 +48,6 @@ finally {
 }
 
 
-$tplPath = "top.tpl";
+$tplPath = "order-form.tpl";
 
 $smarty->display($tplPath);

@@ -38,8 +38,21 @@ header {
   background-color: #DD6673;
   box-shadow:0px 3px 0px 0px #A7374A;
   float: right;
+  margin-right: 10px;
   width: 90px;
 }
+#btn-order {
+  float: right;
+}
+#btn-order input[type="submit"]{
+  background-color: #DD6673;
+  border-style: none;
+  box-shadow:0px 3px 0px 0px #A7374A;
+  color: #fff;
+  padding: 0;
+  width: 90px;
+}
+
 
 /*
  **********************
@@ -157,7 +170,7 @@ ol {
     margin-right: 20px;
   }
   #btn-sort {
-    background-image: url(../image/icon-sort-btn.png);  
+    background-image: url(../image/icon-sort-btn.png);
     float: left;
   }
 
@@ -234,8 +247,6 @@ ol {
       border-bottom: 3px solid #009a9a;
       border-right: 3px solid #009a9a;
     }
-    
-  
 
   /* ファイルアイコン種類 */
   .main-obj-icon div {

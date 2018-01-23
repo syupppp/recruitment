@@ -1,3 +1,27 @@
+<?php
+/* Smarty version 3.1.30, created on 2018-01-23 12:40:51
+  from "/Applications/MAMP/htdocs/syupure/templates/order-form.tpl" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_5a66aec389a5d7_82707760',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'b77f8eaf80b39db18c3bede35914f75df852aa0a' => 
+    array (
+      0 => '/Applications/MAMP/htdocs/syupure/templates/order-form.tpl',
+      1 => 1516678848,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5a66aec389a5d7_82707760 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -107,4 +131,5 @@
     </div>    
   </div>
 </body>
-</html>
+</html><?php }
+}

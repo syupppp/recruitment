@@ -49,3 +49,5 @@ setUserId($userId)
 setCircleId($circleId)
 setParentId($parentId)
 
+
+SELECT * FROM object WHERE circle_id = 1 AND parent_id = 0

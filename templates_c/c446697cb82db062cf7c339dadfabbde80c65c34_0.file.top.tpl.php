@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-01-22 20:03:07
+/* Smarty version 3.1.30, created on 2018-01-23 14:12:00
   from "/Applications/MAMP/htdocs/syupure/templates/top.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5a65c4ebe3f666_51542599',
+  'unifunc' => 'content_5a66c42012dce2_61767671',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c446697cb82db062cf7c339dadfabbde80c65c34' => 
     array (
       0 => '/Applications/MAMP/htdocs/syupure/templates/top.tpl',
-      1 => 1516618986,
+      1 => 1516684305,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a65c4ebe3f666_51542599 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a66c42012dce2_61767671 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -49,6 +49,11 @@ function content_5a65c4ebe3f666_51542599 (Smarty_Internal_Template $_smarty_tpl)
     </div>
     <div id="buttom-box">
       <div id="head-wrapper-top" class="clear-fix">
+        <form action="/syupure/order/goOrderForm.php" method="post" id="form-order">
+          <div id="btn-order">
+            <input class="btn" type="submit" value="注文">
+          </div>
+        </form>
         <div class="btn" id="btn-delete">
           <p>削除</p>
         </div>
@@ -89,7 +94,6 @@ foreach ($_from as $_smarty_tpl->tpl_vars['obj']->value) {
 ?>
             <li>
               <div class="main-obj-icon">
-                <label><input class="obj-checkbox-input" type="checkbox" name="" value="1"><span class="obj-checkbox-part"></span></label>
                 <div class="book">book-icon</div>
               </div>
               <p class="main-obj-name"><?php echo $_smarty_tpl->tpl_vars['obj']->value->getName();?>
@@ -135,24 +139,28 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
       <li>みんなのサークル</li>
     </ul>
     <ul class="obj-box">
-      <li>
-        <div class="main-obj-icon">
-          <div class="book">book-icon</div>
-        </div>
-        <p class="main-obj-name">アイウエオまるまる.book</p>
-      </li>
-      <li>
-        <div class="main-obj-icon">
-          <div class="book">book-icon</div>
-        </div>
-        <p class="main-obj-name">アイウエオまるまる.book</p>
-      </li>
-      <li>
-        <div class="main-obj-icon">
-          <div class="book">book-icon</div>
-        </div>
-        <p class="main-obj-name">アイウエオまるまる.book</p>
-      </li>
+<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['circleList']->value, 'circle', false, NULL, 'circleListLoop', array (
+));
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['circle']->value) {
+?>
+        <li>
+          <div class="main-obj-icon">
+            <fieldset form="form-order">
+              <label><input type="checkbox" class="obj-checkbox-input" name="orderObj" value="1"><span class="obj-checkbox-part"></span></label>
+            </fieldset>
+            <div class="book">book-icon <a href="#"></a></div>
+          </div>
+          <p class="main-obj-name"><?php echo $_smarty_tpl->tpl_vars['circle']->value->getName();?>
+</p>
+        </li>
+<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
     </ul>
   </div>
 </body>

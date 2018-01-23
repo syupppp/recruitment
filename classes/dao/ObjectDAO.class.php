@@ -79,14 +79,40 @@ class ObjDAO {
 			$id = $row["id"];
 			$name = $row["name"];
 			$type = $row["type"];
-			$userId = $row["user_id"];
-			$circleId = $row["circle_id"];
 
 			$obj = new Obj();
 			$obj->setId($id);
 			$obj->setName($name);
 			$obj->setType($type);
 			$obj->setUserId($userId);
+			$obj->setParentId($parentId);
+			$objList[] = $obj;
+		}
+		return $objList;
+	}
+
+	/**
+	 *	サークル内の全オブジェクト取得。
+	 *
+	 *	@param integer $circleId サークルID。
+	 *	@return array 該当するObjオブジェクト配列。ただし、該当データがない場合はnull。
+	 */
+	public function findAllOnCircle($circleId, $parentId) {
+		$sql = "SELECT * FROM object WHERE circle_id = :circle_id AND parent_id = :parent_id";
+		$stmt = $this->db->prepare($sql);
+		$stmt->bindValue(":circle_id", $circleId, PDO::PARAM_INT);
+		$stmt->bindValue(":parent_id", $parentId, PDO::PARAM_INT);
+		$result = $stmt->execute();
+		$objList = [];
+		while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			$id = $row["id"];
+			$name = $row["name"];
+			$type = $row["type"];
+
+			$obj = new Obj();
+			$obj->setId($id);
+			$obj->setName($name);
+			$obj->setType($type);
 			$obj->setCircleId($circleId);
 			$obj->setParentId($parentId);
 			$objList[] = $obj;
