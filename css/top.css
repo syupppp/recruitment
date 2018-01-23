@@ -262,7 +262,11 @@ ol {
   .main-obj-icon .book {
     width: 70px;
     height: 70px;
-    background-color: #aaa;
+    background-image: url(../image/icon-book.png);
+    background-size: 100%;
+  }
+  .main-obj-icon .book span {
+    display: none;
   }
 
 /*

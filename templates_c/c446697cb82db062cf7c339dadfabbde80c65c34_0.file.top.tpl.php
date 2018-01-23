@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-01-23 14:12:00
+/* Smarty version 3.1.30, created on 2018-01-24 00:36:17
   from "/Applications/MAMP/htdocs/syupure/templates/top.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5a66c42012dce2_61767671',
+  'unifunc' => 'content_5a67567167f1f9_32067876',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c446697cb82db062cf7c339dadfabbde80c65c34' => 
     array (
       0 => '/Applications/MAMP/htdocs/syupure/templates/top.tpl',
-      1 => 1516684305,
+      1 => 1516721775,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5a66c42012dce2_61767671 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5a67567167f1f9_32067876 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -94,7 +94,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['obj']->value) {
 ?>
             <li>
               <div class="main-obj-icon">
-                <div class="book">book-icon</div>
+                <div class="book"><span>book-icon</span></div>
               </div>
               <p class="main-obj-name"><?php echo $_smarty_tpl->tpl_vars['obj']->value->getName();?>
 </p>
@@ -148,9 +148,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['circle']->value) {
         <li>
           <div class="main-obj-icon">
             <fieldset form="form-order">
-              <label><input type="checkbox" class="obj-checkbox-input" name="orderObj" value="1"><span class="obj-checkbox-part"></span></label>
+              <label><input type="checkbox" class="obj-checkbox-input" name="orderObj" value="1" form="form-order"><span class="obj-checkbox-part"></span></label>
             </fieldset>
-            <div class="book">book-icon <a href="#"></a></div>
+            <div class="book"><span>book-icon</span><a href="#"></a></div>
           </div>
           <p class="main-obj-name"><?php echo $_smarty_tpl->tpl_vars['circle']->value->getName();?>
 </p>
@@ -164,5 +164,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
     </ul>
   </div>
 </body>
-</html><?php }
+</html>
+<?php }
 }

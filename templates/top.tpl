@@ -63,7 +63,7 @@
 {foreach from=$objList item="obj" name="objListLoop"}
             <li>
               <div class="main-obj-icon">
-                <div class="book">book-icon</div>
+                <div class="book"><span>book-icon</span></div>
               </div>
               <p class="main-obj-name">{$obj->getName()}</p>
             </li>
@@ -107,7 +107,7 @@
             <fieldset form="form-order">
               <label><input type="checkbox" class="obj-checkbox-input" name="orderObj" value="1" form="form-order"><span class="obj-checkbox-part"></span></label>
             </fieldset>
-            <div class="book">book-icon <a href="#"></a></div>
+            <div class="book"><span>book-icon</span><a href="#"></a></div>
           </div>
           <p class="main-obj-name">{$circle->getName()}</p>
         </li>
