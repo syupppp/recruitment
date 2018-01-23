@@ -1,2 +1,3 @@
 #dbの設定ファイルは無視する
-classes/Conf.php
+/classes/Conf.php
+/templates_c/
