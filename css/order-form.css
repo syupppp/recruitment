@@ -134,6 +134,8 @@ body {
   /* 右側 */
   #main-right-box {
     float: left;
+    overflow: scroll;
+    padding-bottom: 50px;
     width: 879px;
     height: 100%;
   }

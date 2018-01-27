@@ -36,6 +36,9 @@ a {
   line-height: 30px;
   text-align: center;
 }
+.btn a {
+  color: #fff;
+}
 ol {
   list-style: none;
 }

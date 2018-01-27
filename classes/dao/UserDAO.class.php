@@ -55,6 +55,9 @@ class UserDAO {
 			$mail = $row["mail"];
 			$sex = $row["sex"];
 			$password = $row["password"];
+			$creditCompany = $row["credit_company"];
+			$creditName = $row["credit_name"];
+			$creditDate = $row["credit_date"];
 
 			$user = new User();
 			$user->setId($id);
@@ -68,8 +71,57 @@ class UserDAO {
 			$user->setPhoneNumber($phoneNumber);
 			$user->setMail($mail);
 			$user->setPassword($password);
+			$user->setCreditCompany($creditCompany);
+			$user->setCreditName($creditName);
+			$user->setCreditDate($creditDate);
 		}
+		return $user;
+	}
+	/**
+	 *	ユーザIDによる検索。
+	 *
+	 *	@param int $userId ユーザID。
+	 *	@return User 該当するUserオブジェクト。ただし、該当データがない場合はnull。
+	 */
+	public function findByUserId($userId) {
+		$sql = "SELECT * FROM user WHERE id = :id";
+		$stmt = $this->db->prepare($sql);
+		$stmt->bindValue(":id", $userId, PDO::PARAM_INT);
+		$result = $stmt->execute();
+		$user = null;
+		if($result && $row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			$id = $row["id"];
+			$name = $row["name"];
+			$nameKana = $row["name_kana"];
+			$prefId = $row["pref_id"];
+			$postalCode = $row["postal_code"];
+			$addressPrefectures = $row["address_prefectures"];
+			$addressMunicipality = $row["address_municipality"];
+			$addressOther = $row["address_other"];
+			$phoneNumber = $row["phone_number"];
+			$mail = $row["mail"];
+			$sex = $row["sex"];
+			$password = $row["password"];
+			$creditCompany = $row["credit_company"];
+			$creditName = $row["credit_name"];
+			$creditDate = $row["credit_date"];
 
+			$user = new User();
+			$user->setId($id);
+			$user->setName($name);
+			$user->setNameKana($nameKana);
+			$user->setPrefId($prefId);
+			$user->setPostalCode($postalCode);
+			$user->setAddressPrefectures($addressPrefectures);
+			$user->setAddressMunicipality($addressMunicipality);
+			$user->setAddressOther($addressOther);
+			$user->setPhoneNumber($phoneNumber);
+			$user->setMail($mail);
+			$user->setPassword($password);
+			$user->setCreditCompany($creditCompany);
+			$user->setCreditName($creditName);
+			$user->setCreditDate($creditDate);
+		}
 		return $user;
 	}
 }

@@ -2,9 +2,9 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="css/html5reset-1.6.1.css">
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/order-completed.css">
+  <link rel="stylesheet" href="/syupure/css/html5reset-1.6.1.css">
+  <link rel="stylesheet" href="/syupure/css/common.css">
+  <link rel="stylesheet" href="/syupure/css/order-completed.css">
   <title>コミまる | 注文フォーム</title>
 </head>
 <body>
@@ -16,9 +16,9 @@
       <div id="head-wrapper-top">
         <a href="#" id="profile-box" class="clear-fix">
           <div id="profile-img">
-            <img src="image/profile-maru.png" alt="プロフィールイメージ">
+            <img src="/syupure/image/profile-maru.png" alt="プロフィールイメージ">
           </div>
-          <p id="profile-name">まる</p>
+          <p id="profile-name">{$userName}</p>
         </a>
       </div>
     </div>
@@ -53,7 +53,7 @@
           </div>
         </form>
       </div>
-    </div>    
+    </div>
   </div>
 </body>
 </html>

@@ -1,9 +1,9 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="css/html5reset-1.6.1.css">
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/order-delivery.css">
+  <link rel="stylesheet" href="/syupure/css/html5reset-1.6.1.css">
+  <link rel="stylesheet" href="/syupure/css/common.css">
+  <link rel="stylesheet" href="/syupure/css/order-delivery.css">
   <title>コミまる | 注文フォーム</title>
 </head>
 <body>
@@ -15,16 +15,16 @@
       <div id="head-wrapper-top">
         <a href="#" id="profile-box" class="clear-fix">
           <div id="profile-img">
-            <img src="image/profile-maru.png" alt="プロフィールイメージ">
+            <img src="/syupure/image/profile-maru.png" alt="プロフィールイメージ">
           </div>
-          <p id="profile-name">まる</p>
+          <p id="profile-name">{$userName}</p>
         </a>
       </div>
     </div>
     <div id="buttom-box">
       <div id="header-left-box">
         <div class="btn" id="btn-back">
-          <p>戻る</p>
+          <p><a href="/syupure/book/showFolder.php">戻る</a></p>
         </div>
         <h2 id="file-title">夏コミ合同誌.book</h2>
       </div>
@@ -41,22 +41,22 @@
         <li>完了</li>
       </ol>
       <div id="main-box">
-        <form action="#" method="post"> 
+        <form action="/syupure/order/goOrderPayment.php" method="post">
           <h3>お届け先について</h3>
           <p id="main-description">以下のお届け先でよろしい場合は、「次へ」ボタンをクリックしてください。</p>
           <div class="property-box">
             <table>
               <tr>
                 <th>郵便番号</th>
-                <td>〒574-0043</td>
+                <td>〒{$circle->getPostalCode()}</td>
               </tr>
               <tr>
                 <th>住所</th>
-                <td>大阪府大東市灰塚4丁目17-17</td>
+                <td>{$circle->getAddressPrefectures()}{$circle->getAddressMunicipality()}{$circle->getAddressOther()}</td>
               </tr>
               <tr>
                 <th>お名前</th>
-                <td>風炉&nbsp;光</td>
+                <td>{$circle->getDeliveryName()}</td>
               </tr>
             </table>
             <div id="btn-edit">
@@ -68,7 +68,7 @@
           </div>
         </form>
       </div>
-    </div>    
+    </div>
   </div>
 </body>
 </html>

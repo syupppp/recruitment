@@ -13,30 +13,43 @@
 
 require_once($_SERVER['DOCUMENT_ROOT'].'/syupure/classes/libs/Smarty.class.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/syupure/classes/Conf.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/syupure/classes/Functions.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/syupure/classes/entity/User.class.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/syupure/classes/dao/UserDAO.class.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/syupure/classes/entity/Object.class.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/syupure/classes/dao/ObjectDAO.class.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/syupure/classes/entity/CircleMember.class.php');
+require_once($_SERVER['DOCUMENT_ROOT'].'/syupure/classes/dao/CircleMemberDAO.class.php');
 
 $smarty = new Smarty();
 $smarty->setTemplateDir($_SERVER['DOCUMENT_ROOT']."/syupure/templates/");
 $smarty->setCompileDir($_SERVER['DOCUMENT_ROOT']."/syupure/templates_c/");
 
-/* （仮）トップにてログイン開始 */
+if(isset($_SESSION["validationMsg"])) {
+	$validationMsg = $_SESSION["validationMsg"];
+	$smarty->assign("validationMsg", $validationMsg);
+}
+
+clearSession();
+
+// ログインユーザ情報取得。
+$userId = $_SESSION["userId"];
+$userName = $_SESSION["userName"];
+
 $objList = [];
 try {
 	$db = new PDO(DB_DNS, DB_USERNAME, DB_PASSWORD);
-	$userDAO = new UserDAO($db);
 	$objDAO = new ObjDAO($db);
-	$user = $userDAO->findByLoginMail("Florlight.H@gmail.com");
-	$obj = $objDAO->findByUserDir($user->getId());
-	$objList = $objDAO->findAllOnDir($user->getId(), $obj->getId());
-	$circleList = $objDAO->findAllOnCircle(1, 0);
+	$obj = $objDAO->findByUserDir($userId);
+	$objList = $objDAO->findAllOnDir($userId, $obj->getId());
+	$circleObjList = $objDAO->findAllOnCircle(1, 0);
+	$circleMemberDAO = new CircleMemberDAO($db);
+	$circleIdList = $circleMemberDAO->findByCircleId($userId);
 
-	$smarty->assign("user", $user);
 	$smarty->assign("obj", $obj);
 	$smarty->assign("objList", $objList);
-	$smarty->assign("circleList", $circleList);
+	$smarty->assign("circleObjList", $circleObjList);
+	$smarty->assign("circleId", $circleIdList[0]);
 }
 catch(PDOException $ex) {
 	print_r($ex);
@@ -47,6 +60,7 @@ finally {
  	$db = null;
 }
 
+$smarty->assign("userName", $userName);
 
 $tplPath = "top.tpl";
 

@@ -18,7 +18,7 @@
           <div id="profile-img">
             <img src="/syupure/image/profile-maru.png" alt="プロフィールイメージ">
           </div>
-          <p id="profile-name">{$user->getName()}</p>
+          <p id="profile-name">{$userName}</p>
         </a>
       </div>
     </div>
@@ -27,6 +27,11 @@
         <form action="/syupure/order/goOrderForm.php" method="post" id="form-order">
           <div id="btn-order">
             <input class="btn" type="submit" value="注文">
+            {if isset($validationMsg)}
+            <div id="order-validation-box">
+              <p>{$validationMsg}</p>
+            </div>
+            {/if}
           </div>
         </form>
         <div class="btn" id="btn-delete">
@@ -101,15 +106,16 @@
       <li>みんなのサークル</li>
     </ul>
     <ul class="obj-box">
-{foreach from=$circleList item="circle" name="circleListLoop"}
+{foreach from=$circleObjList item="circleObj" name="circleObjListLoop"}
         <li>
           <div class="main-obj-icon">
             <fieldset form="form-order">
-              <label><input type="checkbox" class="obj-checkbox-input" name="orderObj" value="1" form="form-order"><span class="obj-checkbox-part"></span></label>
+              <label><input type="checkbox" class="obj-checkbox-input" name="orderObjId" value="{$circleObj->getId()}" form="form-order"><span class="obj-checkbox-part"></span></label>
+              <input type="hidden" name="selectCircleId" value="{$circleId}" form="form-order">
             </fieldset>
             <div class="book"><span>book-icon</span><a href="#"></a></div>
           </div>
-          <p class="main-obj-name">{$circle->getName()}</p>
+          <p class="main-obj-name">{$circleObj->getName()}</p>
         </li>
 {/foreach}
     </ul>

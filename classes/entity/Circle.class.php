@@ -42,6 +42,14 @@ class Circle {
 	 *	住所3。
 	 */
 	private $addressOther;
+	/**
+	 *	お届け先氏名。
+	 */
+	private $deliveryName;
+	/**
+	 *	電話番号。
+	 */
+	private $phoneNumber;
 
 
 	//以下アクセサメソッド。
@@ -58,28 +66,46 @@ class Circle {
 	public function setName($name) {
 		$this->name = $name;
 	}
-	public function getType() {
-		return $this->type;
+	public function getPrefId() {
+		return $this->prefId;
 	}
-	public function setType($type) {
-		$this->type = $type;
+	public function setPrefId($prefId) {
+		$this->prefId = $prefId;
 	}
-	public function getUserId() {
-		return $this->userId;
+	public function getPostalCode() {
+		return $this->postalCode;
 	}
-	public function setUserId($userId) {
-		$this->userId = $userId;
+	public function setPostalCode($postalCode) {
+		$this->postalCode = $postalCode;
 	}
-	public function getCircleId() {
-		return $this->circleId;
+	public function getAddressPrefectures() {
+		return $this->addressPrefectures;
 	}
-	public function setCircleId($circleId) {
-		$this->circleId = $circleId;
+	public function setAddressPrefectures($addressPrefectures) {
+		$this->addressPrefectures = $addressPrefectures;
 	}
-	public function getParentId() {
-		return $this->parentId;
+	public function getAddressMunicipality() {
+		return $this->addressMunicipality;
 	}
-	public function setParentId($parentId) {
-		$this->parentId = $parentId;
+	public function setAddressMunicipality($addressMunicipality) {
+		$this->addressMunicipality = $addressMunicipality;
+	}
+	public function getAddressOther() {
+		return $this->addressOther;
+	}
+	public function setAddressOther($addressOther) {
+		$this->addressOther = $addressOther;
+	}
+	public function getDeliveryName() {
+		return $this->deliveryName;
+	}
+	public function setDeliveryName($deliveryName) {
+		$this->deliveryName = $deliveryName;
+	}
+	public function getPhoneNumber() {
+		return $this->phoneNumber;
+	}
+	public function setPhoneNumber($phoneNumber) {
+		$this->phoneNumber = $phoneNumber;
 	}
 }

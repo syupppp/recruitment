@@ -1,9 +1,9 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="css/html5reset-1.6.1.css">
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/order-payment.css">
+  <link rel="stylesheet" href="/syupure/css/html5reset-1.6.1.css">
+  <link rel="stylesheet" href="/syupure/css/common.css">
+  <link rel="stylesheet" href="/syupure/css/order-payment.css">
   <title>コミまる | 注文フォーム</title>
 </head>
 <body>
@@ -15,16 +15,16 @@
       <div id="head-wrapper-top">
         <a href="#" id="profile-box" class="clear-fix">
           <div id="profile-img">
-            <img src="image/profile-maru.png" alt="プロフィールイメージ">
+            <img src="/syupure/image/profile-maru.png" alt="プロフィールイメージ">
           </div>
-          <p id="profile-name">まる</p>
+          <p id="profile-name">{$userName}</p>
         </a>
       </div>
     </div>
     <div id="buttom-box">
       <div id="header-left-box">
         <div class="btn" id="btn-back">
-          <p>戻る</p>
+          <p><a href="/syupure/book/showFolder.php">戻る</a></p>
         </div>
         <h2 id="file-title">夏コミ合同誌.book</h2>
       </div>
@@ -41,7 +41,7 @@
         <li>完了</li>
       </ol>
       <div id="main-box">
-        <form action="#" method="post">
+        <form action="/syupure/order/goOrderConfirmation.php" method="post">
           <h3>お支払い方法について</h3>
           <p id="main-description">以下のお支払い方法でよろしい場合は、「次へ」ボタンをクリックしてください。</p>
           <div class="property-box">
@@ -52,15 +52,15 @@
               </tr>
               <tr>
                 <th>カード会社</th>
-                <td>MasterCard</td>
+                <td>{$user->getCreditCompany()}</td>
               </tr>
               <tr>
                 <th>名義人名</th>
-                <td>HIKARU FURO</td>
+                <td>{$user->getCreditName()}</td>
               </tr>
               <tr>
                 <th>有効期限(月/年)</th>
-                <td>10月2021年</td>
+                <td>{$user->getCreditDate()}</td>
               </tr>
             </table>
           </div>
@@ -69,7 +69,7 @@
           </div>
         </form>
       </div>
-    </div>    
+    </div>
   </div>
 </body>
 </html>

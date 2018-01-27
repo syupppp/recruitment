@@ -43,22 +43,25 @@ class CircleDAO {
 		$result = $stmt->execute();
 		$circle = null;
 		if($result && $row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-			$id = $row["id"];
 			$name = $row["name"];
 			$prefId = $row["pref_id"];
 			$postalCode = $row["postal_code"];
 			$addressPrefectures = $row["address_prefectures"];
 			$addressMunicipality = $row["address_municipality"];
 			$addressOther = $row["address_other"];
+			$deliveryName = $row["delivery_name"];
 			$phoneNumber = $row["phone_number"];
 
 			$circle = new Circle();
-			$circle->setId($id);
+			$circle->setId($circleId);
 			$circle->setName($name);
-			$circle->setType($type);
-			$circle->setUserId($userId);
-			$circle->setCircleId($circleId);
-			$circle->setParentId($parentId);
+			$circle->setPrefId($prefId);
+			$circle->setPostalCode($postalCode);
+			$circle->setAddressPrefectures($addressPrefectures);
+			$circle->setAddressMunicipality($addressMunicipality);
+			$circle->setAddressOther($addressOther);
+			$circle->setDeliveryName($deliveryName);
+			$circle->setPhoneNumber($phoneNumber);
 		}
 
 		return $circle;

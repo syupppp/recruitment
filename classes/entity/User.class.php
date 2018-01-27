@@ -62,6 +62,18 @@ class User {
 	 *	パスワード。
 	 */
 	private $password;
+	/**
+	 *	クレジット会社名。
+	 */
+	private $creditCompany;
+	/**
+	 *	クレジット名義人名。
+	 */
+	private $creditName;
+	/**
+	 *	クレジット名義人名。
+	 */
+	private $creditDate;
 
 	//以下アクセサメソッド。
 
@@ -130,5 +142,23 @@ class User {
 	}
 	public function setPassword($password) {
 		$this->password = $password;
+	}
+	public function getCreditCompany() {
+		return $this->creditCompany;
+	}
+	public function setCreditCompany($creditCompany) {
+		$this->creditCompany = $creditCompany;
+	}
+	public function getCreditName() {
+		return $this->creditName;
+	}
+	public function setCreditName($creditName) {
+		$this->creditName = $creditName;
+	}
+	public function getCreditDate() {
+		return $this->creditDate;
+	}
+	public function setCreditDate($creditDate) {
+		$this->creditDate = $creditDate;
 	}
 }
